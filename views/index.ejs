@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Supply Chain</h1>
+    <h3>Add entities</h3>
+    <a href="/addFarmer">Add Farmer</a><br>
+    <a href="/addProcessors">Add Processors</a><br>
+    <a href="/addDistributors">Add Distributors</a><br>
+    <a href="/addRetailers">Add Retailers</a>
+    
+    <h3>Sell Milk</h3>
+    <a href="/sellMilk">Sell Milk</a>
+
+    <% if(supplyChain.farmers.length){ %>
+        <h3>Add Milk By Farmer</h3>
+        <a href="/addMilk">Add milk</a>
+    <% } %>  
+
+    
+</body>
+</html>

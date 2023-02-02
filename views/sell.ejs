@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>sell Milk</h1>
+    <form action="/sellMilk" method="post">
+    <h3>Sell From Farmer to Processor</h3>
+    <label for="From">From</label>
+    <input type="text" name="from" value="farmer" id="From" readonly>
+    <label for="name">Name</label>
+    <input type="text" name="fromName">
+    <label for="processorName">Processor Name</label>
+    <input type="text" name="toName" id="processorName">
+    <label for="milkAmount">Milk Amount To sell</label>
+    <input type="text" id="milkAmount" name="milkAmount">
+    <button type="submit">Submit</button>
+</form>
+    <form action="/sellMilk" method="post">
+    <h3>Sell from Processor to Distributor</h3>
+    <label for="From">From</label>
+    <input type="text" name="from" value="processor" id="From" readonly>
+    <label for="name">Name</label>
+    <input type="text" name="fromName">
+    <label for="processorName">Distributor Name</label>
+    <input type="text" name="toName" id="processorName">
+    <% if(supplyChain.processors.length){ %> 
+    <label for="milkId">Milk-ID</label>
+    <select name="milkId" id="milkId">
+        <% for(let processor of supplyChain.processors){ %>
+            <% for(let milkStock of processor.milkStock){ %>
+                <option value="<%= milkStock.id %>">
+                    <%= milkStock.id %>
+                </option>
+            <% } %>
+        <% } %>
+    </select>
+    <% } %> 
+    <label for="milkAmount">Milk Amount To sell</label>
+    <input type="text" id="milkAmount" name="milkAmount">
+    <button type="submit">Submit</button>
+</form>
+<form action="/sellMilk" method="post">
+    <h3>Sell from Distributor to Retailers</h3>
+    <label for="From">From</label>
+    <input type="text" name="from" value="distributor" id="From" readonly>
+    <label for="name">Name</label>
+    <input type="text" name="fromName">
+    <label for="processorName">Retailers Name</label>
+    <input type="text" name="toName" id="processorName">
+    <% if(supplyChain.processors.length){ %> 
+    <label for="milkId">Milk-ID</label>
+    <select name="milkId" id="milkId">
+        <% for(let distributor of supplyChain.distributors){ %>
+            <% for(let milkStock of distributor.milkStock){ %>
+                <option value="<%= milkStock.id %>">
+                    <%= milkStock.id %>
+                </option>
+            <% } %>
+        <% } %>
+    </select>
+    <% } %> 
+    <label for="milkAmount">Milk Amount To sell</label>
+    <input type="text" id="milkAmount" name="milkAmount">
+    <button type="submit">Submit</button>
+</form>
+<form action="/sellMilk" method="post">
+    <h3>Sell from Retailers to Customer</h3>
+    <label for="From">From</label>
+    <input type="text" name="from" value="retailer" id="From" readonly>
+    <label for="name">Name</label>
+    <input type="text" name="fromName">
+    <label for="processorName">Customer Name</label>
+    <input type="text" name="toName" id="processorName">
+    <% if(supplyChain.processors.length){ %> 
+    <label for="milkId">Milk-ID</label>
+    <select name="milkId" id="milkId">
+        <% for(let retailer of supplyChain.retailers){ %>
+            <% for(let milkStock of retailer.milkStock){ %>
+                <option value="<%= milkStock.id %>">
+                    <%= milkStock.id %>
+                </option>
+            <% } %>
+        <% } %>
+    </select>
+    <% } %> 
+    <label for="milkAmount">Milk Amount To sell</label>
+    <input type="text" id="milkAmount" name="milkAmount">
+    <button type="submit">Submit</button>
+</form>
+</body>
+
+</html>
